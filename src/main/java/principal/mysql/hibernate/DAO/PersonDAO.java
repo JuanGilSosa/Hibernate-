@@ -2,15 +2,19 @@ package principal.mysql.hibernate.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
+import org.hibernate.Session;
 import principal.mysql.hibernate.Models.Person;
 
 public class PersonDAO {
-    private final Connection conn;
     
-    public PersonDAO(Connection conn){
-        this.conn = conn;
+    private final HibernateORM hibernateORM;
+    //private final Connection conn;
+    
+    public PersonDAO(/*Connection conn*/){
+        //this.conn = conn;
+        this.hibernateORM = new HibernateORM();
     }
-    
+    /*
     public Boolean Add(Person p){
         Boolean isSave = false;
         try{
@@ -41,5 +45,11 @@ public class PersonDAO {
             System.out.println("PersonDAO Method-GetAll : "+e.getMessage());
         }
         return info;
+    }
+    */
+    public Boolean Add_ORM(Person p){
+        Session session = this.hibernateORM.getSession();
+        session.save(p);
+        return this.hibernateORM.commit(session);
     }
 }

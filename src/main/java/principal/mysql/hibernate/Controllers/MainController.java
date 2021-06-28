@@ -13,12 +13,16 @@ public class MainController {
      * @param jtable donde se cargara la informacion ni bien se conecte a la base de datos
      */
     public MainController(javax.swing.JTable jtable){
-        this.personDAO = new PersonDAO(MySQL.getConnection());
-        ArrayList<Object> obj = this.personDAO.GetAll();
-        for(Object o : obj){
-            JTableHelper.addData(jtable, ((Object[])o));
-        }
-        javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
+        //  this.personDAO = new PersonDAO(MySQL.getConnection());
+        this.personDAO = new PersonDAO();
+        /*
+            ArrayList<Object> obj = this.personDAO.GetAll();
+            for(Object o : obj){
+                JTableHelper.addData(jtable, ((Object[])o));
+            }
+            javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
+        */
+        
     }
     
     public void Add(javax.swing.JTable jtable, String name, String surname, Integer age){
@@ -26,7 +30,7 @@ public class MainController {
         if(name.isEmpty() | surname.isEmpty() | age < 0){
             javax.swing.JOptionPane.showMessageDialog(null, "DEBE LLENAR LOS CAMPOS");
         }else{
-            if(this.personDAO.Add(p) == true){
+            if(this.personDAO.Add_ORM(p) == true){
                 javax.swing.JOptionPane.showMessageDialog(null, "¡PERSONA CARGADA AL SISTEMA!");
                 Object[] data = {name, surname, age};
                 JTableHelper.addData(jtable, data);
