@@ -1,7 +1,9 @@
 package principal.mysql.hibernate.DAO;
 
+import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import org.hibernate.Session;
 import principal.mysql.hibernate.Models.Person;
 
@@ -51,5 +53,14 @@ public class PersonDAO {
         Session session = this.hibernateORM.getSession();
         session.save(p);
         return this.hibernateORM.commit(session);
+    }
+    public ArrayList GetAll(){
+        Session session = this.hibernateORM.getSession();
+        List result = session.createQuery("from Person").list();
+        ArrayList<Person> persons = new ArrayList<>();
+        for (Person p : (List<Person>)result){
+            persons.add(p);
+        }
+        return persons;
     }
 }

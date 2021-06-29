@@ -15,13 +15,13 @@ public class MainController {
     public MainController(javax.swing.JTable jtable){
         //  this.personDAO = new PersonDAO(MySQL.getConnection());
         this.personDAO = new PersonDAO();
-        /*
-            ArrayList<Object> obj = this.personDAO.GetAll();
-            for(Object o : obj){
-                JTableHelper.addData(jtable, ((Object[])o));
-            }
-            javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
-        */
+        
+        ArrayList<Person> objs = this.personDAO.GetAll();
+        for(Person p : objs){
+            Object[] o = {p.getName(), p.getSurname(), p.getAge()}; 
+            JTableHelper.addData(jtable, o);
+        }
+        javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
         
     }
     
