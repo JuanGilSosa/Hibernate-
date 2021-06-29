@@ -7,4 +7,5 @@ principal\mysql\hibernate\Helpers\JTableHelper.class
 principal\mysql\hibernate\Main\Main.class
 principal\mysql\hibernate\Views\MainFrame$1.class
 principal\mysql\hibernate\DAO\PersonDAO.class
+principal\mysql\hibernate\Models\Person_.class
 principal\mysql\hibernate\Views\MainFrame.class

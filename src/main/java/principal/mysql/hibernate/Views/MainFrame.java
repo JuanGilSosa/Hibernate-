@@ -29,6 +29,8 @@ public class MainFrame extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(400, 200));
+        setResizable(false);
 
         jTable_users.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

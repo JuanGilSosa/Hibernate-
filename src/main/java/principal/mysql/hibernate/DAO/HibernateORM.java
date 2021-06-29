@@ -6,6 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import principal.mysql.hibernate.Models.Person;
 
 public class HibernateORM {
     
@@ -17,9 +18,11 @@ public class HibernateORM {
     
     private void setUp(){
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+        sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
         try{
             //sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            
+            //sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Person.class).buildSessionFactory();
         }catch(HibernateException e){
             System.out.println("Se destruye Session");
             StandardServiceRegistryBuilder.destroy(registry);
