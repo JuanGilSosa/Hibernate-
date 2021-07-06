@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 public class Person implements Serializable {
     
     @Id
-    @GeneratedValue(generator="increment")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
     @Column(name="name")
