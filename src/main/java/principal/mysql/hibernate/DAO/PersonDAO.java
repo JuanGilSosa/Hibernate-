@@ -4,6 +4,7 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import principal.mysql.hibernate.Models.Person;
 
@@ -61,6 +62,7 @@ public class PersonDAO {
         for (Person p : (List<Person>)result){
             persons.add(p);
         }
+        this.hibernateORM.commit(session);
         return persons;
     }
 }
