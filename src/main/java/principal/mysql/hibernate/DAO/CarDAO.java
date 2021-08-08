@@ -10,7 +10,7 @@ public class CarDAO {
     public CarDAO(){
         this.hibernateORM = new HibernateORM();
     }
-    
+   
     public Boolean Add(Car c){
         Session session = this.hibernateORM.getSession();
         session.save(c);
@@ -21,5 +21,5 @@ public class CarDAO {
         List data = session.createQuery("from Car").list();
         this.hibernateORM.commit(session);
         return data;
-    }
+    }    
 }

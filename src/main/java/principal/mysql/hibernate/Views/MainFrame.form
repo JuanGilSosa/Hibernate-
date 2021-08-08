@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="HIBERNATE TEST"/>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[400, 200]"/>
     </Property>
@@ -47,26 +48,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="title" alignment="0" pref="638" max="32767" attributes="0"/>
                       <Component id="btn_connect" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel_surname" max="32767" attributes="0"/>
-                              <Component id="jLabel_name" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField_surname" max="32767" attributes="0"/>
-                              <Component id="jTextField_name" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel_age" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jSpinner_age" max="32767" attributes="0"/>
-                              <Component id="btn_save_to_db" pref="183" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel_title" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -82,9 +65,33 @@
                               <Component id="jButton_saveCar" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel_title" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel_surname" max="32767" attributes="0"/>
+                              <Component id="jLabel_name" max="32767" attributes="0"/>
+                              <Component id="jLabel_trabajo" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextField_job" max="32767" attributes="0"/>
+                              <Component id="jTextField_surname" max="32767" attributes="0"/>
+                              <Component id="jTextField_name" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel_age" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jSpinner_age" pref="183" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="btn_save_to_db" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -103,15 +110,24 @@
                       <Component id="jSpinner_age" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel_surname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_surname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_save_to_db" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel_surname" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField_surname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel_trabajo" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="jTextField_job" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="btn_save_to_db" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="title" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="106" max="-2" attributes="0"/>
+                  <Component id="title" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel_title" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -249,10 +265,11 @@
             <Component class="javax.swing.JTable" name="jTable_users">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
+                  <Table columnCount="4" rowCount="0">
                     <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
                     <Column editable="true" title="APELLIDO" type="java.lang.Object"/>
                     <Column editable="true" title="EDAD" type="java.lang.Object"/>
+                    <Column editable="true" title="TRABAJO" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -268,7 +285,12 @@
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="EDAD"/>
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
@@ -288,6 +310,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_saveCarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField_job">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel_trabajo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TRABAJO"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

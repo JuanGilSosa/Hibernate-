@@ -2,6 +2,7 @@ principal\mysql\hibernate\Models\Car.class
 principal\mysql\hibernate\Views\MainFrame$2.class
 principal\mysql\hibernate\DAO\MySQL.class
 principal\mysql\hibernate\Helpers\JTableHelper.class
+principal\mysql\hibernate\Models\Client.class
 principal\mysql\hibernate\Views\MainFrame$1.class
 principal\mysql\hibernate\Views\MainFrame.class
 principal\mysql\hibernate\DAO\CarDAO.class

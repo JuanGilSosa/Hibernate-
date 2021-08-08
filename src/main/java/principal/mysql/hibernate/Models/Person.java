@@ -15,13 +15,13 @@ public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private Integer id;
+    protected Integer id;
     @Column(name="name")
-    private String name;
+    protected String name;
     @Column(name="surname")
-    private String surname;
+    protected String surname;
     @Column(name="age")
-    private Integer age;
+    protected Integer age;
 
     public Person(){
         

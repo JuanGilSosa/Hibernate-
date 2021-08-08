@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.persistence.EntityManager;
 import org.hibernate.Session;
+import principal.mysql.hibernate.Models.Client;
 import principal.mysql.hibernate.Models.Person;
 
-public class PersonDAO {
+public class ClientDAO {
     
     private final HibernateORM hibernateORM;
     //private final Connection conn;
     
-    public PersonDAO(/*Connection conn*/){
+    public ClientDAO(/*Connection conn*/){
         //this.conn = conn;
         this.hibernateORM = new HibernateORM();
     }
@@ -50,9 +51,14 @@ public class PersonDAO {
         return info;
     }
     */
-    public Boolean Add_ORM(Person p){
+    public Boolean Add_Client(Client c){
         Session session = this.hibernateORM.getSession();
-        session.save(p);
+        session.save(c);
+        return this.hibernateORM.commit(session);
+    }
+    public Boolean Add_Person(Person p){
+        Session session = this.hibernateORM.getSession();
+        session.save(p); 
         return this.hibernateORM.commit(session);
     }
     public ArrayList GetAll(){

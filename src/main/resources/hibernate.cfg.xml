@@ -13,7 +13,7 @@
 
         <mapping class="principal.mysql.hibernate.Models.Person"/> 
         <mapping class="principal.mysql.hibernate.Models.Car"/>
-
+        <mapping class="principal.mysql.hibernate.Models.Client"/>
         <!--
         <hibernate-mapping package="principal.mysql.hibernate.Models"> 
         
