@@ -3,14 +3,16 @@ principal\mysql\hibernate\Views\MainFrame$2.class
 principal\mysql\hibernate\DAO\MySQL.class
 principal\mysql\hibernate\Helpers\JTableHelper.class
 principal\mysql\hibernate\Models\Client.class
+principal\mysql\hibernate\Models\Client_.class
 principal\mysql\hibernate\Views\MainFrame$1.class
 principal\mysql\hibernate\Views\MainFrame.class
+principal\mysql\hibernate\Models\Employee_.class
 principal\mysql\hibernate\DAO\CarDAO.class
 principal\mysql\hibernate\Models\Car_.class
 principal\mysql\hibernate\Models\Person.class
 principal\mysql\hibernate\Controllers\MainController.class
 principal\mysql\hibernate\DAO\HibernateORM.class
 principal\mysql\hibernate\Main\Main.class
+principal\mysql\hibernate\Models\Employee.class
 principal\mysql\hibernate\DAO\PersonDAO.class
 principal\mysql\hibernate\Models\Person_.class
-principal\mysql\hibernate\Views\MainFrame$3.class

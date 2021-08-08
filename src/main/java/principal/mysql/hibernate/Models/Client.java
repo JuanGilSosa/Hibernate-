@@ -3,12 +3,14 @@ package principal.mysql.hibernate.Models;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.DiscriminatorValue;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name="client")
+@DiscriminatorValue("CLNT")
 public class Client extends Person implements Serializable{
 
     @Column(name="job")

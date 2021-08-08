@@ -1,44 +1,31 @@
 package principal.mysql.hibernate.Controllers;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import principal.mysql.hibernate.DAO.CarDAO;
-import principal.mysql.hibernate.DAO.ClientDAO;
+import principal.mysql.hibernate.DAO.PersonDAO;
 import principal.mysql.hibernate.Helpers.JTableHelper;
-import principal.mysql.hibernate.Models.Car;
 import principal.mysql.hibernate.Models.Client;
+import principal.mysql.hibernate.Models.Employee;
 import principal.mysql.hibernate.Models.Person;
 
 public class MainController {
-    private final CarDAO carDAO;
-    private final ClientDAO clientDAO;
+    private final PersonDAO personDAO;
     /**
      * <p> Practicamente el MainController Method crea manda una conexion a PersonDAO();</p>
      * @param jtable_u donde se cargara la informacion ni bien se conecte a la base de datos
-     * @param jtable_c donde se cargara la informacion ni bien se conecte a la base de datos
      */
-    public MainController(javax.swing.JTable jtable_u, javax.swing.JTable jtable_c){
+    public MainController(javax.swing.JTable jtable_u){
         //  this.personDAO = new PersonDAO(MySQL.getConnection());
-        this.clientDAO = new ClientDAO();
-        this.carDAO    = new CarDAO();
+        this.personDAO = new PersonDAO();
         
         //Carga de usuarios a la tabla
-        ArrayList<Person> objs = this.clientDAO.GetAll();
+        ArrayList<Person> objs = this.personDAO.GetAll();
+        //ArrayList<Client> objs_c = this.personDAO.GetAll_Client();
+        //ArrayList<Employee> objs_e = this.personDAO.GetAll_Employee();
+        
         for(Person p : objs){
             Object[] o = {p.getName(), p.getSurname(), p.getAge()}; 
             JTableHelper.addData(jtable_u, o);
-        }
-        
-        //Carga de autos a la tabla
-        List cars = this.carDAO.GetAll();
-        Iterator<Car> it = cars.iterator();
-        while(it.hasNext()){
-            Car c = it.next();
-            Object[] o = {c.getName(), c.getPatent()};
-            JTableHelper.addData(jtable_c, o);
-        }
-        
+        }        
         javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
     }
     /**
@@ -47,51 +34,36 @@ public class MainController {
      * @param surname
      * @param age
      * @param job
+     * @param typeEmployee
      * <p> Agrega una persona al sistema, recibiendo como parametro la tabla, y los 3 
-     * fundamentales que son nombre[name], apellido[surname] y edad[age], trabajo[job]
+     * fundamentales que son nombre[name], apellido[surname] y edad[age], trabajo[job], tipoEmpleado[typeEmployee]
      */
     public void Add(
             javax.swing.JTable jtable, 
             String name, 
             String surname, 
             Integer age, 
-            String job
+            String job,
+            String typeEmployee
     ){
         if(name.isEmpty() | surname.isEmpty() | age < 0){
             javax.swing.JOptionPane.showMessageDialog(null, "DEBE LLENAR LOS CAMPOS");
         }else{
+            Person p = new Person();
             Client c = new Client();
-            c.setName(name);c.setAge(age);
-            c.setSurname(surname);c.setJob(job);
-            if(this.clientDAO.Add_Client(c) == true){
-                if(this.clientDAO.Add_Client(c) == true){
-                    javax.swing.JOptionPane.showMessageDialog(null, "¡CLIENTE CARGADO AL SISTEMA!");
-                    Object[] data = {name, surname, age, job};
-                    JTableHelper.addData(jtable, data);
-                }
-                
+            Employee e = new Employee();
+            if(typeEmployee.isEmpty()){    
+                c.setName(name);c.setAge(age);
+                c.setSurname(surname);c.setJob(job);
+                p = c;
             }else{
-                javax.swing.JOptionPane.showMessageDialog(null, "ERROR AL CARGAR AL SISTEMA");
+                e.setName(name);e.setAge(age);
+                e.setSurname(surname);e.setType(typeEmployee);
+                p = e;
             }
-        }
-    }
-    
-    /**
-     * @param jtable
-     * @param name
-     * @param patent
-     * <p> Agrega un auto al sistema, recibiendo como parametro la tabla, y los dos
-     * fundamentales que son nombre [name] y patente [patent]
-     */
-    public void Add(javax.swing.JTable jtable, String name, String patent){
-        if(name.isEmpty() | patent.isEmpty()){
-            javax.swing.JOptionPane.showMessageDialog(null, "DEBE LLENAR LOS CAMPOS");
-        }else{
-            Car myCar = new Car();
-            myCar.setName(name); myCar.setPatent(patent);
-            if(this.carDAO.Add(myCar) == true){
-                javax.swing.JOptionPane.showMessageDialog(null, "¡AUTO CARGADO AL SISTEMA!");
-                Object[] data = {name, patent};
+            if(this.personDAO.Add(p) == true){
+                javax.swing.JOptionPane.showMessageDialog(null, "¡DATOS CARGADOS AL SISTEMA!");
+                Object[] data = {name, surname, age, typeEmployee, job};
                 JTableHelper.addData(jtable, data);
             }else{
                 javax.swing.JOptionPane.showMessageDialog(null, "ERROR AL CARGAR AL SISTEMA");

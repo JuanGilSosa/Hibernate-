@@ -7,8 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="person")
 public class Person implements Serializable {
     
@@ -16,10 +19,13 @@ public class Person implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     protected Integer id;
+    
     @Column(name="name")
     protected String name;
+    
     @Column(name="surname")
     protected String surname;
+    
     @Column(name="age")
     protected Integer age;
 

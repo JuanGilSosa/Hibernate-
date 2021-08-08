@@ -9,16 +9,16 @@ import org.hibernate.Session;
 import principal.mysql.hibernate.Models.Client;
 import principal.mysql.hibernate.Models.Person;
 
-public class ClientDAO {
+public class PersonDAO {
     
     private final HibernateORM hibernateORM;
     //private final Connection conn;
     
-    public ClientDAO(/*Connection conn*/){
+    public PersonDAO(/*Connection conn*/){
         //this.conn = conn;
         this.hibernateORM = new HibernateORM();
     }
-    /*
+    /* INFORMACION CON BASE DE DATOS SIN FRAMEWORK
     public Boolean Add(Person p){
         Boolean isSave = false;
         try{
@@ -61,6 +61,12 @@ public class ClientDAO {
         session.save(p); 
         return this.hibernateORM.commit(session);
     }
+    
+    public Boolean Add(Person p){
+        Session session = this.hibernateORM.getSession();
+        session.save(p);
+        return this.hibernateORM.commit(session);
+    }
     public ArrayList GetAll(){
         Session session = this.hibernateORM.getSession();
         List result = session.createQuery("from Person").list();
@@ -70,5 +76,27 @@ public class ClientDAO {
         }
         this.hibernateORM.commit(session);
         return persons;
+    }
+    
+    public ArrayList GetAll_Employee(){
+        Session session = this.hibernateORM.getSession();
+        List result = session.createQuery("from Person WHERE DTYPE = 'EMP'").list();
+        ArrayList<Person> employee = new ArrayList<>();
+        for(Person p : (List<Person>)result){
+            employee.add(p);
+        }
+        this.hibernateORM.commit(session);
+        return employee;
+    }
+    
+    public ArrayList GetAll_Client(){
+        Session session = this.hibernateORM.getSession();
+        List result = session.createQuery("from Person WHERE DTYPE = 'CLNT'").list();
+        ArrayList<Person> employee = new ArrayList<>();
+        for(Person p : (List<Person>)result){
+            employee.add(p);
+        }
+        this.hibernateORM.commit(session);
+        return employee;
     }
 }
