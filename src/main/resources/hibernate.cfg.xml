@@ -2,19 +2,26 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/usuarios?useUnicode=true;useJDBCCompliantTimezoneShift=true;useLegacyDatetimeCode=false;serverTimezone=UTC</property>
-                                                                          
-        <property name="connection.username">root</property>
-        <property name="connection.password">43386816Mas</property>
-        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
-        <property name="hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">true</property>
-
+        <property name="connection.url">jdbc:sqlite://D:\Users\ºJuanº\Documents\.PROGRAMACION\Java\Hibernate\Practicas\database.db</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="connection.username"></property>
+        <property name="connection.password"></property>
+        
         <mapping class="principal.mysql.hibernate.Models.Person"/> 
         <mapping class="principal.mysql.hibernate.Models.Car"/>
         <mapping class="principal.mysql.hibernate.Models.Client"/>
         <mapping class="principal.mysql.hibernate.Models.Employee" />
+        <!-- <property name="current_session_context_class">thread</property> -->
+        <!--
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/usuarios?useUnicode=true;useJDBCCompliantTimezoneShift=true;useLegacyDatetimeCode=false;serverTimezone=UTC</property>                                            
+        <property name="connection.username">root</property>
+        <property name="connection.password">43386816Mas</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property> 
+        -->
         
         <!--
         <hibernate-mapping package="principal.mysql.hibernate.Models"> 

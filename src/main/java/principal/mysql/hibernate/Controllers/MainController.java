@@ -23,7 +23,16 @@ public class MainController {
         //ArrayList<Employee> objs_e = this.personDAO.GetAll_Employee();
         
         for(Person p : objs){
-            Object[] o = {p.getName(), p.getSurname(), p.getAge()}; 
+            Object[] o = {}; 
+            if(p instanceof Client){
+                Client clnt = (Client)p;
+                Object[] c = {clnt.getName(), clnt.getSurname(), clnt.getAge(), "",clnt.getJob()}; 
+                o = c;
+            }else if(p instanceof Employee){
+                Employee emp = (Employee)p;
+                Object[] e = {emp.getName(), emp.getSurname(), emp.getAge(), emp.getType()};
+                o = e;
+            }
             JTableHelper.addData(jtable_u, o);
         }        
         javax.swing.JOptionPane.showMessageDialog(null, "BASE DE DATOS CONECTADA");
